@@ -1,42 +1,52 @@
-// Reference to the Firebase database node where project data is stored
-var projectDataRef = firebase.database().ref('projects');
+document.addEventListener('DOMContentLoaded', function () {
+    // Retrieve project details from sessionStorage
+    var projectName = sessionStorage.getItem('projectName');
+    var projectDescription = sessionStorage.getItem('projectDescription');
+    var projectScope = sessionStorage.getItem('projectScope');
+    var projectOutcomes = sessionStorage.getItem('projectOutcomes');
+    var projectSkills = sessionStorage.getItem('projectSkills');
 
-// Reference to the HTML element where project details will be displayed
-var projectDetailsDiv = document.getElementById('project-details');
+    // Populate HTML elements with project details
+    document.getElementById('project-name').textContent = projectName;
+    document.getElementById('project-description').textContent = projectDescription;
+    document.getElementById('project-scope').textContent = projectScope;
+    document.getElementById('project-outcomes').textContent = projectOutcomes;
+    document.getElementById('project-skills').textContent = projectSkills;
+});
 
-// Fetch project data from Firebase
-projectDataRef.once('value', function (snapshot) {
-    // Loop through the projects in the database
-    snapshot.forEach(function (childSnapshot) {
-        var projectData = childSnapshot.val();
+const database = firebase.database();
+const membersRef = database.ref('members');
 
-        // Create HTML elements to display project details
-        var projectDiv = document.createElement('div');
-        projectDiv.className = 'project-container';
+document.addEventListener('DOMContentLoaded', function() {
+    // Get the form element
+    const sendRequestForm = document.getElementById('send-request-form');
 
-        var projectName = document.createElement('h3');
-        projectName.innerText = projectData.name;
+    if (sendRequestForm) {
+        // Add submit event listener to the form
+        sendRequestForm.addEventListener('submit', function(e) {
+            e.preventDefault();
 
-        var projectDescription = document.createElement('p');
-        projectDescription.innerText = projectData.desc;
+            // Get the input value
+            const requestName = document.getElementById('request-name').value;
 
-        var projectScope = document.createElement('p');
-        projectScope.innerText = projectData.scope;
-
-        var projectOutcomes = document.createElement('p');
-        projectOutcomes.innerText = projectData.out;
-
-        var projectSkills = document.createElement('p');
-        projectSkills.innerText = projectData.skill;
-
-        // Append the project details to the projectDiv
-        projectDiv.appendChild(projectName);
-        projectDiv.appendChild(projectDescription);
-        projectDiv.appendChild(projectScope);
-        projectDiv.appendChild(projectOutcomes);
-        projectDiv.appendChild(projectSkills);
-
-        // Append the projectDiv to the projectDetailsDiv
-        projectDetailsDiv.appendChild(projectDiv);
-    });
+            // Validate if the requestName is not empty
+            if (requestName.trim() !== '') {
+                // Add the request to the Firebase database
+                membersRef.push({
+                    name: requestName
+                }, function(error) {
+                    if (error) {
+                        console.error('Error sending request:', error);
+                    } else {
+                        // Display an alert for successful request submission
+                        alert('Request Sent!');
+                        // Optionally, clear the form after submission
+                        sendRequestForm.reset();
+                    }
+                });
+            } else {
+                alert('Please enter your name before sending the request.');
+            }
+        });
+    }
 });

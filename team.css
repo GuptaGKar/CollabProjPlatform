@@ -1,188 +1,21 @@
-/* Reset some default browser styles */
-body, h1, p {
-    margin: 0;
-    padding: 0;
+/* Basic container styles */
+.project-list-item {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin: 20px;
+    background-color: #f9f9f9;
 }
 
-/* Global styles */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-    height: 100%; /* Make sure the body takes up the full viewport height */
-    margin: 0;
+/* Title style */
+.project-list-item h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
 }
 
-/* Header styles */
-header {
-    background-color: #0073e6;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    padding: 1rem 0;
+/* Description style */
+.project-list-item p {
+    font-size: 1.2em;
+    margin-bottom: 10px;
 }
 
-/* Navigation styles */
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
-}
-
-.nav-logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #fff;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-}
-
-nav ul li {
-    margin-right: 1rem;
-}
-
-nav ul li:last-child {
-    margin-right: 0;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: #fff;
-    font-weight: bold;
-}
-
-/* Main content styles */
-main {
-    padding: 1rem;
-}
-
-/* Uploaded Projects styles */
-.uploaded-projects {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-}
-
-h1 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-}
-
-/* Project Container styles */
-.project-container {
-    background-color: #fff;
-    padding: 1rem;
-    margin-bottom: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    transition: transform 0.2s ease-in-out;
-}
-
-.project-container:hover {
-    transform: scale(1.02);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-}
-
-.project-container h3 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-    color: #333;
-}
-
-.project-container p {
-    color: #666;
-    margin-bottom: 1rem;
-}
-
-/* Footer styles */
-footer {
-    background-color: #333;
-    color: #fff;
-    padding: 2rem 0;
-}
-
-.footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 1rem;
-}
-
-.footer-logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-footer ul {
-    list-style: none;
-    display: flex;
-}
-
-footer ul li {
-    margin-right: 1rem;
-}
-
-footer ul li:last-child {
-    margin-right: 0;
-}
-
-footer ul li a {
-    text-decoration: none;
-    color: #fff;
-}
-
-/* Floating Button */
-.floating-button {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #0073e6;
-    color: #fff;
-    font-size: 24px;
-    width: 70px;
-    height: 70px;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    z-index: 999;
-}
-
-.floating-button:focus {
-    outline: none;
-}
-
-.floating-button:hover {
-    background-color: #0055a4;
-}
-
-.floating-button:active {
-    background-color: #003d7d;
-}
-
-/* Sign In / Sign Up button styles */
-.sign-in-sign-up {
-    position: absolute;
-    top: 30px;
-    right: 20px;
-    font-size: 16px;
-}
-
-.sign-in-sign-up a {
-    text-decoration: none;
-    color: #ffffff;
-    margin: 0 10px;
-}
-
-.sign-in-sign-up a:hover {
-    text-decoration: underline;
-}
+/* Additional styles as needed */

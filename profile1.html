@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+
+    <!-- Add your CSS link here -->
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        #profileForm {
+            max-width: 400px;
+            margin: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Your navigation bar here -->
+    </header>
+
+    <main>
+        <section class="user-profile">
+            <!-- User Image -->
+            <h1>User Profile</h1>
+
+            <!-- Form for profile information -->
+            <form id="profileForm">
+                <!-- User input for username, description, and skills -->
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username">
+
+                <label for="profilePhoto">Profile Photo:</label>
+                <input type="file" id="profilePhoto" name="profilePhoto" accept="image/*">
+                <button type="button" onclick="openCamera()">Take Photo</button>
+
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" rows="4" placeholder="Enter your description"></textarea>
+
+                <label for="skills">Skills:</label>
+                <textarea id="skills" name="skills" rows="2" placeholder="Enter your skills"></textarea>
+
+                <!-- Submit button -->
+                <button type="submit">Save Profile</button>
+            </form>
+
+            <!-- JavaScript for camera access and form submission -->
+            <script>
+                function openCamera() {
+                    // Access the camera and capture a photo (you may need additional code here)
+                    navigator.mediaDevices.getUserMedia({ video: true })
+                        .then(function (stream) {
+                            // Display the camera stream in a video element or take a snapshot
+                            // You can use canvas to capture a snapshot
+                            // Example: const canvas = document.createElement('canvas');
+                            // canvas.getContext('2d').drawImage(videoElement, 0, 0, canvas.width, canvas.height);
+                            // const imageData = canvas.toDataURL('image/png');
+                            // Save the imageData or display it in an img element
+                        })
+                        .catch(function (error) {
+                            console.error('Error accessing camera:', error);
+                        });
+                }
+
+                document.getElementById('profileForm').addEventListener('submit', function (event) {
+                    event.preventDefault();
+
+                    // Get values from input fields
+                    const usernameValue = document.getElementById('username').value;
+                    const descriptionValue = document.getElementById('description').value;
+                    const skillsValue = document.getElementById('skills').value;
+
+                    // Update displayed values
+                    document.getElementById('displayUsername').innerText = usernameValue;
+                    document.getElementById('displayDescription').innerText = descriptionValue;
+                    document.getElementById('displaySkills').innerText = skillsValue;
+                });
+            </script>
+
+            <!-- User Details -->
+           
+        </section>
+
+        <!-- Other content of your page goes here -->
+    </main>
+
+    <footer>
+        <!-- Your footer content here -->
+    </footer>
+</body>
+</html>

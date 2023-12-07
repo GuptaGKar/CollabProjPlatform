@@ -103,7 +103,7 @@ footer {
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
-    align items: center;
+    /* align items: center; */
     padding: 0 1rem;
 }
 

@@ -19,29 +19,27 @@
     </header>
     
     <main>
-        <section class="project-details">
-            <h1>Project Details</h1>
+        <h1 id="project-name">Project Name</h1>
+        <h2> Description : </h2> 
+        <p id="project-description">Project Description goes here.</p><br>
+        <h2> Scope : </h2> 
+        <p id="project-scope">Project Scope goes here.</p><br>
+        <h2> Outcomes : </h2> 
+        <p id="project-outcomes">Project Outcomes go here.</p><br>
+        <h2> Skills Required : </h2> 
+        <p id="project-skills">Technical Skills go here.</p><br>
 
-            <div class="project-info">
-                <h2 id="project-name">Project Name</h2>
-                <p id="project-description">Project Description</p>
-
-                <h3>Project Scopes:</h3>
-                <ul id="project-scopes">
-                    <!-- Project scopes will be added dynamically with JavaScript -->
-                </ul>
-
-                <h3>Project Outcomes:</h3>
-                <ul id="project-outcomes">
-                    <!-- Project outcomes will be added dynamically with JavaScript -->
-                </ul>
-
-                <h3>id="required-skills"</h3>
-                <ul id="required-skills">
-                    <!-- Required skills will be added dynamically with JavaScript -->
-                </ul>
-            </div>
+        <section class="send-request">
+            <h2>Send Request</h2>
+            <form id="send-request-form">
+                <label for="request-name">Your Name:</label>
+                <input type="text" id="request-name" required>
+                <button type="submit">Send Request</button>
+            </form>
         </section>
+    
+        <!-- Add any additional elements or sections as needed -->
+            
     </main>
 
     <footer>
@@ -55,6 +53,8 @@
         </div>
     </footer>
 
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase.js"></script>
+    <script src="memconfig.js"></script>
     <script src="project.js"></script>
 </body>
 </html>

@@ -1,19 +1,12 @@
-// Initialize Firebase with your configuration
-//firebase.initializeApp(firebaseConfig);
-
-// Reference to the Firebase database
 var database = firebase.database();
 var projectsRef = database.ref('ki');
 
-// Function to create and append a project container
 function createProjectContainer(projectData) {
     var projectDisplay = document.querySelector('.project-display');
 
-    // Create a new project container
     var projectContainer = document.createElement('div');
     projectContainer.classList.add('project-container');
 
-    // Populate the container with project details
     var projectName = document.createElement('h3');
     projectName.textContent = projectData.pname;
     projectContainer.appendChild(projectName);
@@ -34,14 +27,27 @@ function createProjectContainer(projectData) {
     projectSkills.textContent = projectData.skill;
     projectContainer.appendChild(projectSkills);
 
-    // Append the project container to the display section
+    projectContainer.addEventListener('click', function () {
+        redirectToProject(projectData.pname, projectData.desc, projectData.scope, projectData.out, projectData.skill);
+    });
+
     projectDisplay.appendChild(projectContainer);
+
+    projectContainer.addEventListener('click', function () {
+        // Store project details in sessionStorage
+        sessionStorage.setItem('projectName', projectData.pname);
+        sessionStorage.setItem('projectDescription', projectData.desc);
+        sessionStorage.setItem('projectScopes', projectData.scope);
+        sessionStorage.setItem('projectOutcomes', projectData.out);
+        sessionStorage.setItem('projectSkills', projectData.skill);
+
+        // Redirect to project.html
+        window.location.href = 'project.html';
+    });
 }
 
-// Function to fetch and display project data
 function displayProjects() {
     projectsRef.on('value', function (snapshot) {
-      //  projectDisplay.innerHTML = ''; // Clear existing containers before populating
         snapshot.forEach(function (childSnapshot) {
             var projectData = childSnapshot.val();
             createProjectContainer(projectData);
@@ -49,5 +55,4 @@ function displayProjects() {
     });
 }
 
-// Call the displayProjects function to populate the project containers
 displayProjects();
