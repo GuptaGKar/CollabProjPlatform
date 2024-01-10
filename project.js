@@ -17,13 +17,20 @@ document.addEventListener('DOMContentLoaded', function () {
 const database = firebase.database();
 const membersRef = database.ref('members');
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Get the form element
     const sendRequestForm = document.getElementById('send-request-form');
 
     if (sendRequestForm) {
+        // Fetch the user's name from Firebase Authentication
+        const user = firebase.auth().currentUser;
+        const defaultRequestName = user ? user.displayName : '';
+
+        // Pre-fill the "Your Name" input with the user's name
+        document.getElementById('request-name').value = defaultRequestName;
+
         // Add submit event listener to the form
-        sendRequestForm.addEventListener('submit', function(e) {
+        sendRequestForm.addEventListener('submit', function (e) {
             e.preventDefault();
 
             // Get the input value
@@ -34,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Add the request to the Firebase database
                 membersRef.push({
                     name: requestName
-                }, function(error) {
+                }, function (error) {
                     if (error) {
                         console.error('Error sending request:', error);
                     } else {

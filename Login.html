@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Login</title>
+    <!-- Add your Firebase configuration script here -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase.js"></script>
+    <script src="firebase-config.js"></script>
+    <link rel="stylesheet" href="login.css"> 
+    <!-- Add your CSS link here -->
+</head>
+<body>
+    <div class="formContainer">
+        <div class="formWrapper">
+            <span class="logo">Your Logo</span>
+            <span class="title">Login Your Account</span> 
+            <form id="loginForm">
+                <input required type="email" placeholder="Email" id="email">
+                <input required type="password" placeholder="Password" id="password">
+                <button type="submit" id="loginbutton">Log in</button>
+                <div id="loading"></div>
+                <div id="error"></div>
+            </form>
+            <p>Don't have an account? <a href="Register.html">Register</a></p>
+        </div>
+    </div>
+
+    <script defer src="Login.js"></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+    <!-- Add your Firebase configuration script here -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase.js"></script>
+    <script src="firebase-config.js"></script>
+    <link rel="stylesheet" href="Register.css"> 
+    <!-- Add your CSS link here -->
+</head>
+<body>
+    <div class="formContainer">
+        <div class="formWrapper">
+            
+            <span class="title">Register</span> 
+            <form id="registerForm">
+                <input required type="text" placeholder="Display Name" id="displayName">
+                <input required type="email" placeholder="Email" id="email">
+                <input required type="password" placeholder="Password" id="password">
+                <input required type="file" id="file" accept="image/*">
+                <label for="file">
+                    <img src="Add.png" alt="">
+                    <span>Add a Profile Picture</span>
+                </label>
+                <button type="submit" id="signupbutton">Sign up</button>
+                <div id="loading"></div>
+                <div id="error"></div>
+            </form>
+            <p>Already have an account? <a href="login.html">Login</a></p>
+        </div>
+    </div>
+
+    <script defer src="Register.js"></script>
+</body>
+</html>

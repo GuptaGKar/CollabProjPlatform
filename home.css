@@ -1,33 +1,20 @@
-/* Reset some default browser styles */
-body, h1, p {
-    margin: 0;
-    padding: 0;
-}
-
 /* Global styles */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background: linear-gradient(to bottom right, #f8f8f8, #e0e0e0);
     color: #333;
-    height: 100%; /* Make sure the body takes up the full viewport height */
+    height: 100%;
     margin: 0;
 }
 
 /* Header styles */
 header {
-    background-color: #0073e6;
+    background: linear-gradient(to bottom, #0073e6, #0055a4);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     padding: 1rem 0;
-}
-
-/* Navigation styles */
-nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
 }
 
 .nav-logo {
@@ -59,102 +46,31 @@ nav ul li a {
 .hero {
     text-align: center;
     padding: 2rem 0;
-    background-color: #fff;
+    background: linear-gradient(to bottom, #fff, #f4f4f4);
     color: #333;
-}
-
-.hero h1 {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-}
-
-.hero p {
-    font-size: 1rem;
-    color: #666;
 }
 
 /* Job listings styles */
 .job-listings {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
-    background-color: #fff;
+    background: linear-gradient(to bottom, #fff, #f4f4f4);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
+    margin-top: 20px;
 }
 
 /* Project Display Containers Section styles */
 .project-display {
-    max-width: 1200px;
-    margin: 2rem auto;
-    padding: 1rem;
-    background-color: #fff;
+    background: linear-gradient(to bottom, #fff, #f4f4f4);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
-}
-
-/* Project Container styles */
-.project-container {
-    border: 1px solid #ccc;
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
-    border-radius: 5px;
-    transition: transform 0.2s ease-in-out;
-}
-
-.project-container:hover {
-    transform: scale(1.02);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-}
-
-.project-container h3 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-    color: #333;
-}
-
-.project-container p {
-    color: #666;
-    margin-bottom: 1rem;
+    margin-top: 20px;
 }
 
 /* Footer styles */
 footer {
-    background-color: #333;
+    background: linear-gradient(to bottom, #333, #1a1a1a);
     color: #fff;
     padding: 2rem 0;
-}
-
-.footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 1rem;
-}
-
-.footer-logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-footer ul {
-    list-style: none;
-    display: flex;
-}
-
-footer ul li {
-    margin-right: 1rem;
-}
-
-footer ul li:last-child {
-    margin-right: 0;
-}
-
-footer ul li a {
-    text-decoration: none;
-    color: #fff;
 }
 
 /* Media query for smaller screens */
@@ -162,20 +78,24 @@ footer ul li a {
     /* Adjust styles for smaller screens here */
 }
 
+/* Floating button styles */
 .floating-button {
     position: fixed;
-    bottom: 20px; /* Adjust the distance from the bottom as needed */
-    right: 20px; /* Adjust the distance from the right as needed */
-    background-color: #0073e6;
+    bottom: 20px;
+    right: 20px;
+    background: linear-gradient(to bottom, #3498db, #2077b3); /* Light blue gradient */
     color: #fff;
-    font-size: 24px;
-    width: 70px; /* Increase the width as desired */
-    height: 70px; /* Increase the height as desired */
+    font-size: 16px; /* Adjusted font size for better proportion */
+    width: 60px; /* Reduced width for a more balanced appearance */
+    height: 60px; /* Reduced height for a more balanced appearance */
     border: none;
     border-radius: 50%;
     cursor: pointer;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    z-index: 999; /* Ensure the button appears above other content */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .floating-button:focus {
@@ -184,27 +104,76 @@ footer ul li a {
 
 /* Additional styles to make the button stand out */
 .floating-button:hover {
-    background-color: #0055a4;
+    background: linear-gradient(to bottom, #2077b3, #125c85); /* Darker blue gradient on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Increased shadow on hover */
 }
 
 .floating-button:active {
-    background-color: #003d7d;
+    background: linear-gradient(to bottom, #125c85, #0d4666); /* Even darker blue gradient on click */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
+
 
 /* Sign In / Sign Up button styles */
 .sign-in-sign-up {
     position: absolute;
-    top: 30px; /* Adjust the distance from the top as needed to align with other links */
-    right: 20px; /* Adjust the distance from the right as needed */
+    top: 30px;
+    right: 20px;
     font-size: 16px;
 }
 
 .sign-in-sign-up a {
     text-decoration: none;
-    color: #ffffff; /* Link color */
-    margin: 0 10px; /* Add spacing between the links */
+    color: #ffffff;
+    margin: 0 10px;
 }
 
 .sign-in-sign-up a:hover {
-    text-decoration: underline; /* Underline on hover */
+    text-decoration: underline;
+}
+/* Project Container styles */
+.project-container {
+    background: #fff;
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+    padding-left: 10%;
+    padding-right: 10%;
+
+}
+
+.project-container:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.project-container h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.project-container p {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.project-container img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+}
+
+.project-container .details {
+    padding: 1rem;
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 768px) {
+    .project-container {
+        margin-bottom: 20px;
+    }
 }
